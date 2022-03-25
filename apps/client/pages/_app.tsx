@@ -1,16 +1,17 @@
+import { MantineProvider } from '@mantine/core';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
-import './styles.css';
+import './styles.scss';
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to client!</title>
+        <title>Talkbase Interview Assignment</title>
       </Head>
-      <main className="app">
+      <MantineProvider withGlobalStyles withNormalizeCSS>
         <Component {...pageProps} />
-      </main>
+      </MantineProvider>
     </>
   );
 }
