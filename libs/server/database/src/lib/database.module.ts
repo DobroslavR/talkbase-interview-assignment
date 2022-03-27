@@ -19,6 +19,13 @@ import { ConfigSchema } from '@server/configuration';
         autoLoadEntities: true,
         synchronize: configService.get('POSTGRES_DB_SYNC'),
         ssl: configService.get('POSTGRES_SSL'),
+        extra: {
+          ssl: {
+            rejectUnauthorized: Boolean(
+              configService.get('POSTGRES_DB_SSL_REJECT_UNAUTHORIZED')
+            ),
+          },
+        },
       }),
     }),
   ],

@@ -12,6 +12,7 @@ export interface ConfigSchema {
   PORT: number;
   NODE_ENV: 'development' | 'production' | 'test';
   POSTGRES_SSL: boolean;
+  POSTGRES_DB_SSL_REJECT_UNAUTHORIZED: boolean;
 }
 
 @Module({
