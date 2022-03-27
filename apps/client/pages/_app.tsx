@@ -1,7 +1,10 @@
 import { MantineProvider } from '@mantine/core';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import './styles.scss';
+
+const queryClient = new QueryClient();
 
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
@@ -9,9 +12,15 @@ function CustomApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Talkbase Interview Assignment</title>
       </Head>
-      <MantineProvider withGlobalStyles withNormalizeCSS>
-        <Component {...pageProps} />
-      </MantineProvider>
+      <QueryClientProvider client={queryClient}>
+        <MantineProvider
+          emotionOptions={{ key: 'mantine', prepend: false }}
+          withGlobalStyles
+          withNormalizeCSS
+        >
+          <Component {...pageProps} />
+        </MantineProvider>
+      </QueryClientProvider>
     </>
   );
 }

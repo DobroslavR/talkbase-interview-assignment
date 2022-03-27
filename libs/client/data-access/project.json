@@ -1,0 +1,43 @@
+{
+  "root": "libs/client/data-access",
+  "sourceRoot": "libs/client/data-access/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/client/data-access",
+        "tsConfig": "libs/client/data-access/tsconfig.lib.json",
+        "project": "libs/client/data-access/package.json",
+        "entryFile": "libs/client/data-access/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/client/data-access/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/client/data-access/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/data-access"],
+      "options": {
+        "jestConfig": "libs/client/data-access/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

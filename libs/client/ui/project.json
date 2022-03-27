@@ -1,0 +1,43 @@
+{
+  "root": "libs/client/ui",
+  "sourceRoot": "libs/client/ui/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/client/ui",
+        "tsConfig": "libs/client/ui/tsconfig.lib.json",
+        "project": "libs/client/ui/package.json",
+        "entryFile": "libs/client/ui/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "babel",
+        "assets": [
+          {
+            "glob": "libs/client/ui/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/client/ui/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/client/ui"],
+      "options": {
+        "jestConfig": "libs/client/ui/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

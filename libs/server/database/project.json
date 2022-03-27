@@ -1,0 +1,33 @@
+{
+  "root": "libs/server/database",
+  "sourceRoot": "libs/server/database/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/server/database",
+        "tsConfig": "libs/server/database/tsconfig.lib.json",
+        "packageJson": "libs/server/database/package.json",
+        "main": "libs/server/database/src/index.ts",
+        "assets": ["libs/server/database/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/server/database/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/server/database"],
+      "options": {
+        "jestConfig": "libs/server/database/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
