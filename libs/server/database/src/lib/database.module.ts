@@ -18,6 +18,7 @@ import { ConfigSchema } from '@server/configuration';
         entities: [__dirname + '/../**/*.entity.ts'],
         autoLoadEntities: true,
         synchronize: configService.get('POSTGRES_DB_SYNC'),
+        ssl: configService.get('POSTGRES_SSL'),
       }),
     }),
   ],

@@ -11,6 +11,7 @@ export interface ConfigSchema {
   POSTGRES_DB_SYNC: boolean;
   PORT: number;
   NODE_ENV: 'development' | 'production' | 'test';
+  POSTGRES_SSL: boolean;
 }
 
 @Module({
