@@ -7,6 +7,7 @@
     "start:server": "nx serve server",
     "build:client": "nx build client",
     "build:server": "nx build server",
+    "start:server:prod": "node dist/apps/server/main",
     "test": "nx test"
   },
   "private": true,
@@ -85,5 +86,8 @@
     "sass": "1.43.2",
     "ts-jest": "27.0.5",
     "typescript": "~4.5.2"
+  },
+  "engines": {
+    "node": "17.5.0"
   }
 }
