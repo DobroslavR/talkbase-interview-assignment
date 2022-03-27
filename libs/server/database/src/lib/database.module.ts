@@ -3,25 +3,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ConfigSchema } from '@server/configuration';
 
-const getSSLConfiguratuion = (configService: ConfigService<ConfigSchema>) => {
-  const env = configService.get('NODE_ENV');
-  if (env === 'production') {
-    return {
-      extra: {
-        ssl: true,
-      },
-      ssl: {
-        rejectUnauthorized: configService.get(
-          'POSTGRES_DB_SSL_REJECT_UNAUTHORIZED'
-        ),
-      },
-    };
-  }
-  return {
-    ssl: false,
-  };
-};
-
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
@@ -37,7 +18,9 @@ const getSSLConfiguratuion = (configService: ConfigService<ConfigSchema>) => {
         entities: [__dirname + '/../**/*.entity.ts'],
         autoLoadEntities: true,
         synchronize: configService.get('POSTGRES_DB_SYNC'),
-        ...getSSLConfiguratuion(configService),
+        ssl: {
+          rejectUnauthorized: false,
+        },
       }),
     }),
   ],

@@ -11,7 +11,6 @@ export interface ConfigSchema {
   POSTGRES_DB_SYNC: boolean;
   PORT: number;
   NODE_ENV: 'development' | 'production' | 'test';
-  POSTGRES_DB_SSL_REJECT_UNAUTHORIZED: boolean;
 }
 
 @Module({
@@ -26,7 +25,6 @@ export interface ConfigSchema {
         POSTGRES_DB_SYNC: Joi.boolean(),
         POSTGRES_DB: Joi.string().required(),
         PORT: Joi.number().default(3000).positive(),
-        POSTGRES_DB_SSL_REJECT_UNAUTHORIZED: Joi.boolean(),
       }),
     }),
   ],
