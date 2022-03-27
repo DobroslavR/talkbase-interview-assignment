@@ -8,6 +8,8 @@
     "build:client": "nx build client",
     "build": "nx build server",
     "start:server:prod": "node dist/apps/server/main.js",
+    "prestart:prod": "rimraf dist && npm run build",
+    "postinstall": "npm run prestart:prod",
     "test": "nx test"
   },
   "private": true,
