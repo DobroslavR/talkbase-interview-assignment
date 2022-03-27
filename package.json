@@ -6,8 +6,8 @@
     "start:client": "nx serve client",
     "start:server": "nx serve server",
     "build:client": "nx build client",
-    "build:server": "nx build server",
-    "start:server:prod": "node dist/apps/server/main",
+    "build": "nx build server",
+    "start:server:prod": "node dist/apps/server/main.js",
     "test": "nx test"
   },
   "private": true,
