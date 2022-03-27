@@ -7,12 +7,10 @@ const getSSLConfiguratuion = (configService: ConfigService<ConfigSchema>) => {
   const env = configService.get('NODE_ENV');
   if (env === 'production') {
     return {
-      extra: {
-        ssl: {
-          rejectUnauthorized: Boolean(
-            configService.get('POSTGRES_DB_SSL_REJECT_UNAUTHORIZED')
-          ),
-        },
+      ssl: {
+        rejectUnauthorized: Boolean(
+          configService.get('POSTGRES_DB_SSL_REJECT_UNAUTHORIZED')
+        ),
       },
     };
   }
