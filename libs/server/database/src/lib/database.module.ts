@@ -7,6 +7,9 @@ const getSSLConfiguratuion = (configService: ConfigService<ConfigSchema>) => {
   const env = configService.get('NODE_ENV');
   if (env === 'production') {
     return {
+      extra: {
+        ssl: true,
+      },
       ssl: {
         rejectUnauthorized: configService.get(
           'POSTGRES_DB_SSL_REJECT_UNAUTHORIZED'
@@ -14,7 +17,9 @@ const getSSLConfiguratuion = (configService: ConfigService<ConfigSchema>) => {
       },
     };
   }
-  return {};
+  return {
+    ssl: false,
+  };
 };
 
 @Module({
