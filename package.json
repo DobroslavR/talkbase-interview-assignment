@@ -20,7 +20,7 @@
     "@mantine/next": "^4.0.7",
     "@nestjs/common": "^8.0.0",
     "@nestjs/config": "^2.0.0",
-    "@nestjs/core": "^8.0.0",
+    "@nestjs/core": "^9.0.5",
     "@nestjs/platform-express": "^8.0.0",
     "@nestjs/swagger": "^5.2.1",
     "@nestjs/typeorm": "^8.0.3",
